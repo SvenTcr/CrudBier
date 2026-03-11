@@ -1,6 +1,6 @@
 <?php
-    // functie: update fiets
-    // auteur: Vul hier je naam in
+    // functie: update bier
+    // auteur: Sven Boender
 
     require_once('functions.php');
 
@@ -9,16 +9,16 @@
 
         // test of update gelukt is
         if(updateRecord($_POST) == true){
-            echo "<script>alert('Fiets is gewijzigd')</script>";
+            echo "<script>alert('Bier is gewijzigd')</script>";
         } else {
-            echo '<script>alert("Fiets is NIET gewijzigd")</script>';
+            echo '<script>alert("Bier is NIET gewijzigd")</script>';
         }
     }
 
     // Test of id is meegegeven in de URL
-    if(isset($_GET['id'])){  
+    if(isset($_GET['biercode'])){  
         // Haal alle info van de betreffende id $_GET['id']
-        $id = $_GET['id'];
+        $id = $_GET['biercode'];
         $row = getRecord($id);
     
 ?>
@@ -32,18 +32,21 @@
   <title>Wijzig Fiets</title>
 </head>
 <body>
-  <h2>Wijzig Fiets</h2>
+  <h2>Wijzig Bier</h2>
   <form method="post">
     
-    <input type="hidden" id="merk" name="id" required value="<?php echo $row['id']; ?>"><br>
-    <label for="merk">Merk:</label>
-    <input type="text" id="merk" name="merk" required value="<?php echo $row['merk']; ?>"><br>
+    <input type="hidden" id="biercode" name="biercode" required value="<?php echo $row['biercode']; ?>"><br>
+    <label for="naam">Naam:</label>
+    <input type="text" id="naam" name="naam" required value="<?php echo $row['naam']; ?>"><br>
 
-    <label for="type">Type:</label>
-    <input type="text" id="type" name="type" required value="<?php echo $row['type']; ?>"><br>
+    <label for="soort">Soort:</label>
+    <input type="text" id="soort" name="soort" required value="<?php echo $row['soort']; ?>"><br>
 
-    <label for="prijs">Prijs:</label>
-    <input type="number" id="prijs" name="prijs" required value="<?php echo $row['prijs']; ?>"><br>
+    <label for="stijl">Stijl:</label>
+    <input type="text" id="stijl" name="stijl" required value="<?php echo $row['stijl']; ?>"><br>
+
+    <label for="alcohol">Alcohol:</label>
+    <input type="number" id="alcohol" name="alcohol" required value="<?php echo $row['alcohol']; ?>"><br>
 
     <input type="submit" name="btn_wzg" value="Wijzig">
   </form>
