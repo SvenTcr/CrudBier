@@ -21,6 +21,7 @@
         $id = $_GET['biercode'];
         $row = getRecord($id);
     
+        
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +30,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <title>Wijzig Fiets</title>
+  <title>Wijzig Bier</title>
 </head>
 <body>
   <h2>Wijzig Bier</h2>
@@ -47,6 +48,16 @@
 
     <label for="alcohol">Alcohol:</label>
     <input type="number" id="alcohol" name="alcohol" required value="<?php echo $row['alcohol']; ?>"><br>
+<!-- Dropdown menu -->
+ <label for="brouwcode">Brouwer:</label>
+ <select id="brouwcode" name="brouwcode" required>
+   <?php
+     $brouwers = getBrouwers();
+     foreach ($brouwers as $brouwer) {
+       $selected = ($brouwer['brouwcode'] == $row['brouwcode']) ? 'selected' : '';
+       echo "<option value='{$brouwer['brouwcode']}' $selected>{$brouwer['naam']}</option>";
+     }
+   ?>
 
     <input type="submit" name="btn_wzg" value="Wijzig">
   </form>

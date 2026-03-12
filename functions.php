@@ -104,13 +104,13 @@ function printCrudTabel($result){
         
         // Wijzig knopje
         $table .= "<td>
-            <form method='post' action='update.php?id=$row[biercode]' >       
+            <form method='post' action='update.php?biercode=$row[biercode]' >       
                 <button>Wzg</button>	 
             </form></td>";
 
         // Delete knopje
         $table .= "<td>
-            <form method='post' action='delete.php?id=$row[biercode]' >       
+            <form method='post' action='delete.php?biercode=$row[biercode]' >       
                 <button>Verwijder</button>	 
             </form></td>";
 
@@ -202,4 +202,13 @@ function deleteRecord($id){
     return $retVal;
 }
 
+function getBrouwers(){
+    // Connect database
+    $conn = connectDb();
+
+    // Select data uit de opgegeven table methode query
+    $result = $conn->query("SELECT * FROM brouwer")->fetchAll();
+
+    return $result;
+}
 ?>
