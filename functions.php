@@ -133,7 +133,8 @@ function updateRecord($row){
         naam = :naam, 
         soort = :soort, 
         stijl = :stijl, 
-        alcohol = :alcohol
+        alcohol = :alcohol,
+        brouwcode = :brouwcode
     WHERE biercode = :biercode
     ";
 
@@ -145,6 +146,7 @@ function updateRecord($row){
         ':soort'=>$row['soort'],
         ':stijl'=>$row['stijl'],
         ':alcohol'=>$row['alcohol'],
+        ':brouwcode'=>$row['brouwcode'],
         ':biercode'=>$row['biercode']
     ]);
 

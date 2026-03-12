@@ -48,6 +48,7 @@
 
     <label for="alcohol">Alcohol:</label>
     <input type="number" id="alcohol" name="alcohol" required value="<?php echo $row['alcohol']; ?>"><br>
+    
 <!-- Dropdown menu -->
  <label for="brouwcode">Brouwer:</label>
  <select id="brouwcode" name="brouwcode" required>
