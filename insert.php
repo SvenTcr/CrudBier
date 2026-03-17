@@ -33,6 +33,17 @@
         <label for="alcohol">Alcohol:</label>
         <input type="number" id="alcohol" name="alcohol" required><br>
 
+        <!-- Dropdown menu -->
+ <label for="brouwcode">Brouwer:</label>
+ <select id="brouwcode" name="brouwcode" required>
+   <?php
+     $brouwers = getBrouwers();
+     foreach ($brouwers as $brouwer) {
+       $selected = ($brouwer['brouwcode'] == $row['brouwcode']) ? 'selected' : '';
+       echo "<option value='{$brouwer['brouwcode']}' $selected>{$brouwer['naam']}</option>";
+     }
+   ?>
+
         <input type="submit" name="btn_ins" value="Insert">
         </form>
         
